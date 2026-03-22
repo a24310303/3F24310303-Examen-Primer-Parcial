@@ -1,0 +1,67 @@
+class Vehiculo
+class NumeroPlaca
+class Marca
+class Modelo
+class AñoFabricacion
+class PrecioDiaAlquiler
+Vehiculo *-- NumeroPlaca
+Vehiculo *-- Marca
+Vehiculo *-- Modelo
+Vehiculo *-- AñoFabricacion
+Vehiculo *-- PrecioDiaAlquiler
+
+class Auto
+
+class Moto
+class CilindradaCc
+Moto *-- CilindradaCc
+
+class Camioneta 
+class CapacidadCargaKg
+Camioneta *-- CapacidadCargaKg
+
+class Cliente{
+- id
+- nombre
+- dni
+- numeroTelefono
++ AlquilarVehiculo()
+}
+
+Cliente "1" o-- "0..*" Alquiler
+Cliente "1" o-- "0..3" Vehiculo
+
+class Alquiler
+class CodigoAlquiler
+class Fecha
+class CostoTotal 
+class Estado
+class Inicio
+class Fin
+class Activo
+class Finalizado 
+Alquiler "1" o-- "1..*" Vehiculo
+Alquiler *-- CodigoAlquiler
+Alquiler *-- Fecha
+Fecha *-- Inicio 
+Fecha *-- Fin 
+Alquiler *-- CostoTotal
+Alquiler *-- Estado
+Estado *-- Activo
+Estado *-- Finalizado
+
+class Registro{
++ AgregarCliente()
++ AgregarVehiculo()
++ RegistrarAlquiler()
++ FinalizarAlquiler()
++ VerificarDisponibilidad()
+}
+Registro o-- Cliente 
+Registro o-- Vehiculo
+Registro o-- Alquiler
+
+
+Auto --|> Vehiculo
+Moto --|> Vehiculo
+Camioneta --|> Vehiculo
